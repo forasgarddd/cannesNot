@@ -1,7 +1,7 @@
 services:
   - type: worker
-    name: cannes-notifier
+    name: cannes-ticket-notifier
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: bash build.sh
     startCommand: python main.py
