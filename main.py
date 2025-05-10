@@ -31,12 +31,8 @@ def get_driver():
     chrome_options.add_argument("--window-size=1920,1080")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-    chrome_options.add_argument("--disable-infobars")
-    chrome_options.add_argument("--disable-extensions")
-    chrome_options.add_argument("--remote-debugging-port=9222")
-    # Set binary location if needed (Render usually puts it on PATH)
-    return webdriver.Chrome(options=chrome_options)
+    chrome_options.binary_location = "/usr/bin/chromium"
+    return webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_options)
 
 def check_ticket_availability(driver):
     try:
